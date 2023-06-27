@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tusk_4</title>
+  </head>
+  <body>
+    <h1>Задача 13</h1>
+    <script>
+      //Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель.
+      // рядок - rowPositiion
+      // колонка - columPosition
+      // кілкість пострілів - numOfShots
+      //
+		//
+		//
+		
+		//1. Вводимо необхідні змінні
+      let rowNumber = parseInt(prompt("Введіть кількість рядків"));
+      let columNumber = parseInt(prompt("Введіть кількість стовпчиків"));
+      let numOfShots = parseInt(prompt("Введіть  кількість пострілів"));
+      const rowPosition = 1 + Math.floor(Math.random() * rowNumber);
+      const columPosition = 1 + Math.floor(Math.random() * rowNumber);
+
+      let userRow, userColum, shootsRest;
+      do {
+        userRow = parseInt(prompt("Введіть рядок в якій стриляєте"));
+        userColum = parseInt(prompt("Введіть стовпчик в якій стриляєте"));
+        shootsRest = userRow === rowPosition && userColum === columPosition;
+        if (!shootsRest) {
+          numOfShots--;
+          alert(`Ви не попали, у вас залишилось ${numOfShots} патронів`);
+        }
+      } while (!shootsRest && numOfShots > 0);
+      if (shootsRest) {
+        document.write("Ви перемогли");
+      } else {
+        document.write(`Ти програв`);
+      }
+    </script>
+  </body>
+</html>
